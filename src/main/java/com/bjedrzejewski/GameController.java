@@ -26,4 +26,10 @@ public class GameController {
         return uid.toString();
     }
 
+    public String newGame(HttpSession session) {
+        GameState gameState = GameState.createGame();
+        session.setAttribute("game", gameState);
+        return "Game Started";
+    }
+
 }
