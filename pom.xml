@@ -36,6 +36,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!--Velocity templating-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-velocity</artifactId>
+		</dependency>
+		<!--Velocity ends-->
+
 		<!--Session-->
 		<dependency>
 			<groupId>org.springframework.session</groupId>
