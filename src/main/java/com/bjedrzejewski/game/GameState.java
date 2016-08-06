@@ -15,6 +15,13 @@ public class GameState implements Serializable{
 
     private final Player player;
 
+    /**
+     * Days passed since the game started
+     */
+    private int daysPassed = 0;
+
+    private DayTime currentDayTime = DayTime.MORNING;
+
     public static GameState createGame() {
         return new GameState();
     }
@@ -42,13 +49,33 @@ public class GameState implements Serializable{
         return availablePlayerActions;
     }
 
+    public void advanceTime(){
+        switch(currentDayTime) {
+            case MORNING:
+                currentDayTime = DayTime.AFTERNOON;
+                break;
+            case AFTERNOON:
+                currentDayTime = DayTime.EVENING;
+                break;
+            case EVENING:
+                currentDayTime = DayTime.NIGHT;
+                break;
+            case NIGHT:
+                currentDayTime = DayTime.MORNING;
+                daysPassed++;
+                break;
+        }
+    }
+
     /**
      * These are the actions that the player can always take.
      * @return
      */
     private List<PlayerAction> getBasicActions(){
         List<PlayerAction> basicPlayerActions = new ArrayList<>();
-        basicPlayerActions.add(RestAction.getInstance());
+
+        basicPlayerActions.addAll(currentDayTime.getBasicActions());
+
         return basicPlayerActions;
     }
 

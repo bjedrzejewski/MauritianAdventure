@@ -1,5 +1,6 @@
 package com.bjedrzejewski.action;
 
+import com.bjedrzejewski.game.GameController;
 import com.bjedrzejewski.game.GameRunner;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -8,22 +9,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
-import com.bjedrzejewski.game.GameController;
-
 /**
  * Created by bartoszjedrzejewski on 06/08/2016.
  *
- * This action represents player resting. It s a singleton.
+ * This action represents player sleeping. It is a singleton.
  */
 @Controller()
-public final class RestAction implements PlayerAction{
+public final class SleepAction implements PlayerAction{
 
-    private static final Logger log = Logger.getLogger(RestAction.class);
-    private static final String restUrl = "/action/rest";
-    private static final RestAction INSTANCE = new RestAction();
+    private static final Logger log = Logger.getLogger(SleepAction.class);
+    private static final String restUrl = "/action/sleep";
+    private static final SleepAction INSTANCE = new SleepAction();
 
 
-    private RestAction() {
+    private SleepAction() {
 
     }
 
@@ -39,20 +38,20 @@ public final class RestAction implements PlayerAction{
         if(!GameRunner.checkGameState(session).isPlayerActionAllowed(INSTANCE)){
             return "error";
         }
-        log.debug("Player is resting.");
+        log.debug("Player is sleeping.");
         return GameController.mainGameController(session, model);
     }
 
     @Override
     public String getActionLabel() {
-        return "Take a rest";
+        return "Go to sleep";
     }
 
-    public static RestAction getInstance() {
+    public static SleepAction getInstance() {
         return INSTANCE;
     }
 
-    public RestAction clone() throws CloneNotSupportedException{
+    public SleepAction clone() throws CloneNotSupportedException{
         throw new CloneNotSupportedException("Cannot clone instance of this class");
     }
 }

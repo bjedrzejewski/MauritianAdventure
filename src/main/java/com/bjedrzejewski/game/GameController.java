@@ -29,11 +29,17 @@ public class GameController {
         //First the game state for the session is retrieved or created
         GameState gameState = GameRunner.checkGameState(session);
 
+        //Advance the time
+        gameState.advanceTime();
+
         //Based on that player actions are presented
         setAvailableActions(model, gameState);
 
         //The rest of UI gets rendered
         setPlayerUI(model, gameState);
+
+        //Saving the gameState for session
+        session.setAttribute("game", gameState);
 
         return "game";
     }
