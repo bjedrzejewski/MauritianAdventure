@@ -4,13 +4,14 @@ import com.bjedrzejewski.action.RestAction;
 import com.bjedrzejewski.player.Player;
 import com.bjedrzejewski.action.PlayerAction;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by bartoszjedrzejewski on 04/08/2016.
  */
-public class GameState {
+public class GameState implements Serializable{
 
     private final Player player;
 
@@ -49,7 +50,13 @@ public class GameState {
         List<PlayerAction> basicPlayerActions = new ArrayList<>();
         basicPlayerActions.add(RestAction.getInstance());
         return basicPlayerActions;
+    }
 
+    public boolean isPlayerActionAllowed(PlayerAction action){
+        if(getAvailablePlayerActions().contains(action)){
+            return true;
+        } else
+            return false;
     }
 
 

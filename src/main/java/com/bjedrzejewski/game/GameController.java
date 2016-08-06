@@ -24,21 +24,21 @@ public class GameController {
      */
     @GetMapping("/game")
     public static String mainGameController(HttpSession session, Map<String, Object> model) {
-        UUID uid = (UUID) session.getAttribute("uid");
-        if (uid == null) {
-            uid = UUID.randomUUID();
-        }
-        session.setAttribute("uid", uid);
+        setUUID(session);
+        GameState gameState = GameRunner.checkGameState(session);
+
         model.put("main_text", "Welcome to the Mauritian Adventure. This is a game where you will try to survive and explore\n" +
                 "the magical island of Mauritius.");
         model.put("option_1", "this is option 1");
         return "game";
     }
 
-    public String newGame(HttpSession session) {
-        GameState gameState = GameState.createGame();
-        session.setAttribute("game", gameState);
-        return "Game Started";
+    private static void setUUID(HttpSession session) {
+        UUID uid = (UUID) session.getAttribute("uid");
+        if (uid == null) {
+            uid = UUID.randomUUID();
+        }
+        session.setAttribute("uid", uid);
     }
 
 }

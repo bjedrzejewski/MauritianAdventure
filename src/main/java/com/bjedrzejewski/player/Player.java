@@ -1,5 +1,6 @@
 package com.bjedrzejewski.player;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  *
  * This is the class representing the Player in the game.
  */
-public class Player {
+public class Player implements Serializable {
 
     private int life = 100;
     private List<Item> playerItems = new ArrayList<>();
