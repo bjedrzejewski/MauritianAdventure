@@ -5,11 +5,21 @@ package com.bjedrzejewski;
  */
 public class GameState {
 
+    private final Player player;
+
     public static GameState createGame() {
         return new GameState();
     }
 
+    /**
+     * Initialising new gameState. This method:
+     *
+     * Sets the player
+     *
+     */
     private GameState(){
-
+        player = Player.createPlayer();
     }
+
+
 }
