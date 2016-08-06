@@ -10,6 +10,6 @@ If you want to get the docker version running:
 `mvn install`
 `mvn package`
 `mvn docker:build`
-`docker run -p 8080:8080 -t bjedrzejewski/mauritian-adventure`
+`docker run -p 8080:8080 -t jedrus07/mauritian-adventure`
 
 This assumes that you have installed and you that you know the basics od [Docker](https://docs.docker.com/).
