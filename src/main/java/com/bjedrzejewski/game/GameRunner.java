@@ -1,4 +1,4 @@
-package com.bjedrzejewski;
+package com.bjedrzejewski.game;
 
 /**
  * Created by bartoszjedrzejewski on 06/08/2016.

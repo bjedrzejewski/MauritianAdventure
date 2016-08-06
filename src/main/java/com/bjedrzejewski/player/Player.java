@@ -1,4 +1,4 @@
-package com.bjedrzejewski;
+package com.bjedrzejewski.player;
 
 import java.util.ArrayList;
 import java.util.List;
