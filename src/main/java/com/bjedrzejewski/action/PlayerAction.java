@@ -27,4 +27,10 @@ public interface PlayerAction {
      */
     abstract String invokeAction(HttpSession session, Map<String, Object> model);
 
+    /**
+     * Action label to be displayed int he UI
+     * @return
+     */
+    abstract String getActionLabel();
+
 }

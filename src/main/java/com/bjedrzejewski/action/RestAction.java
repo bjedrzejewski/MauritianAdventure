@@ -43,6 +43,11 @@ public final class RestAction implements PlayerAction{
         return GameController.mainGameController(session, model);
     }
 
+    @Override
+    public String getActionLabel() {
+        return "Take a rest";
+    }
+
     public static RestAction getInstance() {
         return INSTANCE;
     }

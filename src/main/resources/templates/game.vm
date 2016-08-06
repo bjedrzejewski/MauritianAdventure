@@ -17,12 +17,8 @@
     <div>
         $main_text
     </div>
-        #if($option_1)
-            <button type="button" class="btn btn-default">Option 1</button>
-            <br>
-        #end
-        #if($option_2)
-            <button type="button" class="btn btn-default">Option 2</button>
+        #foreach ($action in $actions)
+            <button type="button" class="btn btn-default" onclick="window.location.href='$action.getActionUrl()'" >$action.getActionLabel()</button>
             <br>
         #end
 </body>

@@ -25,12 +25,26 @@ public class GameController {
     @GetMapping("/game")
     public static String mainGameController(HttpSession session, Map<String, Object> model) {
         setUUID(session);
+
+        //First the game state for the session is retrieved or created
         GameState gameState = GameRunner.checkGameState(session);
 
+        //Based on that player actions are presented
+        setAvailableActions(model, gameState);
+
+        //The rest of UI gets rendered
+        setPlayerUI(model, gameState);
+
+        return "game";
+    }
+
+    private static void setPlayerUI(Map<String, Object> model, GameState gameState) {
         model.put("main_text", "Welcome to the Mauritian Adventure. This is a game where you will try to survive and explore\n" +
                 "the magical island of Mauritius.");
-        model.put("option_1", "this is option 1");
-        return "game";
+    }
+
+    private static void setAvailableActions(Map<String, Object> model, GameState gameState) {
+        model.put("actions", gameState.getAvailablePlayerActions());
     }
 
     private static void setUUID(HttpSession session) {
