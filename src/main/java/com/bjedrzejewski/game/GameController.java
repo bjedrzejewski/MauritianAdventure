@@ -1,5 +1,6 @@
 package com.bjedrzejewski.game;
 
+import com.bjedrzejewski.action.PlayerAction;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +16,14 @@ import java.util.UUID;
 public class GameController {
     private static final Logger log = Logger.getLogger(GameController.class);
 
+    /**
+     * This is the main game controller. All actions and events should go through this one.
+     * @param session
+     * @param model
+     * @return
+     */
     @GetMapping("/game")
-    public String mainGameController(HttpSession session, Map<String, Object> model) {
+    public static String mainGameController(HttpSession session, Map<String, Object> model) {
         UUID uid = (UUID) session.getAttribute("uid");
         if (uid == null) {
             uid = UUID.randomUUID();
