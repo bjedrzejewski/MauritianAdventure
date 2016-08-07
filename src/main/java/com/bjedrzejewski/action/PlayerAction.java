@@ -12,7 +12,6 @@ import java.util.Map;
  *
  * This interaface represents actions that the player of the game can take.
  */
-@Controller("/action")
 public interface PlayerAction {
 
     /**
@@ -25,7 +24,7 @@ public interface PlayerAction {
      * Controller mapped to the action
      * @return
      */
-    abstract String invokeAction(HttpSession session, Map<String, Object> model);
+    abstract void invokeAction(HttpSession session, Map<String, Object> model);
 
     /**
      * Action label to be displayed int he UI

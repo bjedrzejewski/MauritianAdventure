@@ -21,9 +21,7 @@ public final class SleepAction implements PlayerAction{
     private static final String restUrl = "/action/sleep";
     private static final SleepAction INSTANCE = new SleepAction();
 
-
     private SleepAction() {
-
     }
 
     @Override
@@ -32,14 +30,8 @@ public final class SleepAction implements PlayerAction{
     }
 
     @Override
-    @GetMapping(restUrl)
-    public String invokeAction(HttpSession session, Map<String, Object> model) {
-        //Checks if player action is allowed
-        if(!GameRunner.checkGameState(session).isPlayerActionAllowed(INSTANCE)){
-            return "error";
-        }
+    public void invokeAction(HttpSession session, Map<String, Object> model) {
         log.debug("Player is sleeping.");
-        return GameController.mainGameController(session, model);
     }
 
     @Override
