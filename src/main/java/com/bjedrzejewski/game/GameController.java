@@ -62,6 +62,7 @@ public class GameController {
         }
 
         description += gameState.getCurrentDayTime().getDescription();
+        description += "You have been on this adventure for: " +gameState.getDaysPassed()+ " days.";
         description += "<br>";
 
         description += gameState.getDescription();
