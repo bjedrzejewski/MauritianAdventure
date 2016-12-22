@@ -15,6 +15,12 @@ public class ExploreTheBeach implements PlayerAction{
 
     public int exploredTimes = 0;
 
+    private BeachLocation beach;
+
+    public ExploreTheBeach(BeachLocation beach){
+        this.beach = beach;
+    }
+
     @Override
     public String getActionUrl() {
         return "explore-the-beach";
@@ -24,6 +30,9 @@ public class ExploreTheBeach implements PlayerAction{
     public void invokeAction(HttpSession session, Map<String, Object> model) {
         exploredTimes++;
         log.debug("Player explored the beach: "+exploredTimes +" times");
+        if(exploredTimes==2){
+            beach.addAction(new GoToTheForest());
+        }
     }
 
     @Override

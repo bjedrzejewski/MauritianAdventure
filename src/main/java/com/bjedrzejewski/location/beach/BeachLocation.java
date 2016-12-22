@@ -11,10 +11,10 @@ import java.util.List;
  */
 public class BeachLocation implements Location {
 
-    List<PlayerAction> playerActions = new ArrayList<>();
+    private List<PlayerAction> playerActions = new ArrayList<>();
 
     public BeachLocation(){
-        playerActions.add(new ExploreTheBeach());
+        playerActions.add(new ExploreTheBeach(this));
     }
 
     /**
@@ -29,6 +29,10 @@ public class BeachLocation implements Location {
     @Override
     public String getDescription() {
         return "You are on a beautiful beach. The water is clear blue and you can see forrest and some mountains in the distance. ";
+    }
+
+    public void addAction(PlayerAction action){
+        playerActions.add(action);
     }
 
     @Override
