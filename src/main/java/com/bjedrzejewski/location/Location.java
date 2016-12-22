@@ -16,4 +16,6 @@ public interface Location extends Serializable {
 
     String getDescription();
 
+    String getImage();
+
 }

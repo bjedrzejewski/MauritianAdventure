@@ -107,4 +107,8 @@ public class GameState implements Serializable{
     public int getDaysPassed() {
         return daysPassed;
     }
+
+    public Location getPlayerLocation() {
+        return playerLocation;
+    }
 }

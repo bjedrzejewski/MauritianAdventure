@@ -32,6 +32,9 @@ public class GameController {
         //Based on that player actions are presented
         setAvailableActions(model, gameState);
 
+        //Based on that player location is made available
+        setCurrentLocation(model, gameState);
+
         //The rest of UI gets rendered
         setPlayerUI(model, gameState);
 
@@ -39,6 +42,10 @@ public class GameController {
         session.setAttribute("game", gameState);
 
         return "game";
+    }
+
+    private static void setCurrentLocation(Map<String, Object> model, GameState gameState) {
+        model.put("location", gameState.getPlayerLocation());
     }
 
     private static void setPlayerUI(Map<String, Object> model, GameState gameState) {

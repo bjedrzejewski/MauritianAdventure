@@ -30,4 +30,9 @@ public class BeachLocation implements Location {
     public String getDescription() {
         return "You are on a beautiful beach. The water is clear blue and you can see forrest and some mountains in the distance. ";
     }
+
+    @Override
+    public String getImage() {
+        return "beach.jpg";
+    }
 }
