@@ -12,9 +12,9 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
- * Created by bartoszjedrzejewski on 07/08/2016.
+ * This controller is responsible for resolving player actions.
  */
-@Controller()
+@Controller
 public class ActionController {
 
     private static final Logger log = Logger.getLogger(ActionController.class);
