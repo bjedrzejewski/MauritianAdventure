@@ -15,7 +15,7 @@
 <body style="text-align: center">
     <h1>Mauritian Adventure</h1>
     <div>
-        <img src="/images/$location.getImage()" style="width: 100%">
+        <img src="/images/$location.getImage()" style="width: 100%; filter: brightness($gameState.getCurrentDayTime().getBrightness()%)">
     </div>
     <div>
         $main_text

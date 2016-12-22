@@ -41,6 +41,9 @@ public class GameController {
         //Saving the gameState for session
         session.setAttribute("game", gameState);
 
+        //Make the whole state available when needed
+        model.put("gameState", gameState);
+
         return "game";
     }
 
@@ -55,7 +58,11 @@ public class GameController {
         if(gameState.getDaysPassed() == 0) {
             description += "Welcome to the Mauritian Adventure. This is a game where you will try to survive and explore\n" +
                     "the magical island of Mauritius.";
+            description += "<br>";
         }
+
+        description += gameState.getCurrentDayTime().getDescription();
+        description += "<br>";
 
         description += gameState.getDescription();
 

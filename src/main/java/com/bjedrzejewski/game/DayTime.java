@@ -18,6 +18,16 @@ public enum DayTime {
             basicPlayerActions.add(RestAction.getInstance());
             return basicPlayerActions;
         }
+
+        @Override
+        public String getDescription() {
+            return "It is Morning.";
+        }
+
+        @Override
+        public int getBrightness() {
+            return 100;
+        }
     },
     AFTERNOON {
         @Override
@@ -25,6 +35,16 @@ public enum DayTime {
             List<PlayerAction> basicPlayerActions = new ArrayList<>();
             basicPlayerActions.add(RestAction.getInstance());
             return basicPlayerActions;
+        }
+
+        @Override
+        public String getDescription() {
+            return "It is Afternoon.";
+        }
+
+        @Override
+        public int getBrightness() {
+            return 90;
         }
     },
     EVENING {
@@ -34,6 +54,16 @@ public enum DayTime {
             basicPlayerActions.add(RestAction.getInstance());
             return basicPlayerActions;
         }
+
+        @Override
+        public String getDescription() {
+            return "It is Evening.";
+        }
+
+        @Override
+        public int getBrightness() {
+            return 40;
+        }
     },
     NIGHT {
         @Override
@@ -42,7 +72,21 @@ public enum DayTime {
             basicPlayerActions.add(SleepAction.getInstance());
             return basicPlayerActions;
         }
+
+        @Override
+        public String getDescription() {
+            return "It is Night.";
+        }
+
+        @Override
+        public int getBrightness() {
+            return 20;
+        }
     };
 
     public abstract List<PlayerAction> getBasicActions();
+
+    public abstract String getDescription();
+
+    public abstract int getBrightness();
 }

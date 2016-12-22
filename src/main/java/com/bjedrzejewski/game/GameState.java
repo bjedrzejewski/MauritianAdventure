@@ -104,6 +104,10 @@ public class GameState implements Serializable{
         return basicPlayerActions;
     }
 
+    public DayTime getCurrentDayTime() {
+        return currentDayTime;
+    }
+
     public int getDaysPassed() {
         return daysPassed;
     }
