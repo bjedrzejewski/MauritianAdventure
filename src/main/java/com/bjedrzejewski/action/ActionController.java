@@ -22,24 +22,16 @@ public class ActionController {
     @GetMapping("/action/{type}")
     public String invokeAction(HttpSession session, Map<String, Object> model, @PathVariable String type) {
         PlayerAction action = null;
-        switch(type) {
-            case "rest":
-                action = RestAction.getInstance();
-                break;
-            case "sleep":
-                action = SleepAction.getInstance();
-                break;
-            default:
-                log.warn("Unknown action requested: "+type);
-                return "error";
-        }
-        //Checks if player action is allowed
-        if(!GameRunner.checkGameState(session).isPlayerActionAllowed(action)){
+        GameState gameState = GameRunner.checkGameState(session);
+        Map<String, PlayerAction> availableActions = gameState.getAvailablePlayerActions();
+        if(availableActions.containsKey(type)){
+            action = availableActions.get(type);
+        } else {
+            log.warn("Unknown or unavailable action requested: "+type);
             return "error";
         }
-        action.invokeAction(session, model);
 
-        GameState gameState = GameRunner.checkGameState(session);
+        action.invokeAction(session, model);
 
         //Advance the time
         gameState.advanceTime();

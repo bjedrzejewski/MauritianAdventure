@@ -11,9 +11,19 @@ import java.util.List;
  */
 public class BeachLocation implements Location {
 
+    List<PlayerAction> playerActions = new ArrayList<>();
+
+    public BeachLocation(){
+        playerActions.add(new ExploreTheBeach());
+    }
+
+    /**
+     * Returns copy of te players actions list.
+     * @return
+     */
     @Override
     public List<PlayerAction> getAvailableActions() {
-        return new ArrayList<>();
+        return new ArrayList<>(playerActions);
     }
 
     @Override

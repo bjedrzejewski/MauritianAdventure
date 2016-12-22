@@ -7,7 +7,9 @@ import com.bjedrzejewski.action.PlayerAction;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by bartoszjedrzejewski on 04/08/2016.
@@ -43,14 +45,18 @@ public class GameState implements Serializable{
      * This method returns vurrently available player actions
      * @return
      */
-    public List<PlayerAction> getAvailablePlayerActions(){
-        List<PlayerAction> availablePlayerActions = new ArrayList<>();
+    public Map<String, PlayerAction> getAvailablePlayerActions(){
+        Map<String, PlayerAction> availablePlayerActions = new HashMap<>();
 
         //Add the basic actions that are always available
-        availablePlayerActions.addAll(getBasicActions());
+        getBasicActions().stream().map(
+                d -> availablePlayerActions.put(d.getActionUrl(), d)
+        );
 
         //Add actions that are location specific
-        availablePlayerActions.addAll(playerLocation.getAvailableActions());
+        playerLocation.getAvailableActions().stream().map(
+                d -> availablePlayerActions.put(d.getActionUrl(), d)
+        );
 
         return availablePlayerActions;
     }
@@ -97,14 +103,6 @@ public class GameState implements Serializable{
 
         return basicPlayerActions;
     }
-
-    public boolean isPlayerActionAllowed(PlayerAction action){
-        if(getAvailablePlayerActions().contains(action)){
-            return true;
-        } else
-            return false;
-    }
-
 
     public int getDaysPassed() {
         return daysPassed;
