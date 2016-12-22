@@ -1,6 +1,7 @@
 package com.bjedrzejewski.game;
 
-import com.bjedrzejewski.action.RestAction;
+import com.bjedrzejewski.location.beach.BeachLocation;
+import com.bjedrzejewski.location.Location;
 import com.bjedrzejewski.player.Player;
 import com.bjedrzejewski.action.PlayerAction;
 
@@ -15,12 +16,14 @@ public class GameState implements Serializable{
 
     private final Player player;
 
-    /**
-     * Days passed since the game started
-     */
+    //Days passed since the game started
     private int daysPassed = 0;
 
+    //Game starts in the morning
     private DayTime currentDayTime = DayTime.MORNING;
+
+    //Game starts on the beach
+    private Location playerLocation = new BeachLocation();
 
     public static GameState createGame() {
         return new GameState();
@@ -46,6 +49,9 @@ public class GameState implements Serializable{
         //Add the basic actions that are always available
         availablePlayerActions.addAll(getBasicActions());
 
+        //Add actions that are location specific
+        availablePlayerActions.addAll(playerLocation.getAvailableActions());
+
         return availablePlayerActions;
     }
 
@@ -68,6 +74,19 @@ public class GameState implements Serializable{
     }
 
     /**
+     * Provides the description of what the player sees and what is happening to him.
+     * @return the text description to be displayed
+     */
+    public String getDescription(){
+        String description = "";
+
+        description += playerLocation.getDescription();
+
+        return description;
+
+    }
+
+    /**
      * These are the actions that the player can always take.
      * @return
      */
@@ -87,4 +106,7 @@ public class GameState implements Serializable{
     }
 
 
+    public int getDaysPassed() {
+        return daysPassed;
+    }
 }

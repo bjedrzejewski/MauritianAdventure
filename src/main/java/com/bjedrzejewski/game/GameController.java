@@ -42,8 +42,17 @@ public class GameController {
     }
 
     private static void setPlayerUI(Map<String, Object> model, GameState gameState) {
-        model.put("main_text", "Welcome to the Mauritian Adventure. This is a game where you will try to survive and explore\n" +
-                "the magical island of Mauritius.");
+        String description = "";
+
+        //Only show the general description during the first day.
+        if(gameState.getDaysPassed() == 0) {
+            description += "Welcome to the Mauritian Adventure. This is a game where you will try to survive and explore\n" +
+                    "the magical island of Mauritius.";
+        }
+
+        description += gameState.getDescription();
+
+        model.put("main_text", description);
     }
 
     private static void setAvailableActions(Map<String, Object> model, GameState gameState) {
