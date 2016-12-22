@@ -19,7 +19,7 @@ import com.bjedrzejewski.game.GameController;
 public final class RestAction implements PlayerAction{
 
     private static final Logger log = Logger.getLogger(RestAction.class);
-    private static final String restUrl = "/action/rest";
+    private static final String restUrl = "rest";
     private static final RestAction INSTANCE = new RestAction();
 
     private RestAction() {

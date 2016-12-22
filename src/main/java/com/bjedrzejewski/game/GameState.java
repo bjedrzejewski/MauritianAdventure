@@ -49,12 +49,12 @@ public class GameState implements Serializable{
         Map<String, PlayerAction> availablePlayerActions = new HashMap<>();
 
         //Add the basic actions that are always available
-        getBasicActions().stream().map(
+        getBasicActions().stream().forEach(
                 d -> availablePlayerActions.put(d.getActionUrl(), d)
         );
 
         //Add actions that are location specific
-        playerLocation.getAvailableActions().stream().map(
+        playerLocation.getAvailableActions().stream().forEach(
                 d -> availablePlayerActions.put(d.getActionUrl(), d)
         );
 

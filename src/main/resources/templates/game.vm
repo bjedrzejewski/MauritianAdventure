@@ -18,7 +18,7 @@
         $main_text
     </div>
         #foreach ($action in $actions)
-            <button type="button" class="btn btn-default" onclick="window.location.href='$action.getActionUrl()'" >$action.getActionLabel()</button>
+            <button type="button" class="btn btn-default" onclick="window.location.href='/action/$action.getActionUrl()'" >$action.getActionLabel()</button>
             <br>
         #end
 </body>

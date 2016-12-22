@@ -18,7 +18,7 @@ import java.util.Map;
 public final class SleepAction implements PlayerAction{
 
     private static final Logger log = Logger.getLogger(SleepAction.class);
-    private static final String restUrl = "/action/sleep";
+    private static final String restUrl = "sleep";
     private static final SleepAction INSTANCE = new SleepAction();
 
     private SleepAction() {

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpSession;
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Map;
  *
  * This interaface represents actions that the player of the game can take.
  */
-public interface PlayerAction {
+public interface PlayerAction extends Serializable{
 
     /**
      * Url required for invoking the particular action.
