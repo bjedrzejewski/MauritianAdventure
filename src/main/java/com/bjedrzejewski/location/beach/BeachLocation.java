@@ -31,6 +31,11 @@ public class BeachLocation implements Location {
         return "You are on a beautiful beach. The water is clear blue and you can see forrest and some mountains in the distance. ";
     }
 
+    @Override
+    public String getLocationCode() {
+        return "beach";
+    }
+
     public void addAction(PlayerAction action){
         playerActions.add(action);
     }

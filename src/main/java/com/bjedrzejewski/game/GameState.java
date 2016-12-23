@@ -24,8 +24,10 @@ public class GameState implements Serializable{
     //Game starts in the morning
     private DayTime currentDayTime = DayTime.MORNING;
 
+    private Map<String, Location> visitedLocations = new HashMap<>();
+
     //Game starts on the beach
-    private Location playerLocation = new BeachLocation();
+    private Location playerLocation;
 
     public static GameState createGame() {
         return new GameState();
@@ -39,6 +41,16 @@ public class GameState implements Serializable{
      */
     private GameState(){
         player = Player.createPlayer();
+        visitLocation(new BeachLocation());
+    }
+
+    public void visitLocation(Location location){
+        if(visitedLocations.containsKey(location.getLocationCode())){
+            playerLocation = visitedLocations.get(location.getLocationCode());
+        } else {
+            visitedLocations.put(location.getLocationCode(), location);
+            playerLocation = location;
+        }
     }
 
     /**
@@ -118,9 +130,5 @@ public class GameState implements Serializable{
 
     public Location getPlayerLocation() {
         return playerLocation;
-    }
-
-    public void setPlayerLocation(Location playerLocation) {
-        this.playerLocation = playerLocation;
     }
 }

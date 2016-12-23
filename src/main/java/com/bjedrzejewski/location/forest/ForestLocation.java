@@ -23,6 +23,11 @@ public class ForestLocation implements Location {
     }
 
     @Override
+    public String getLocationCode() {
+        return "forest";
+    }
+
+    @Override
     public String getImage() {
         return "forest.jpg";
     }

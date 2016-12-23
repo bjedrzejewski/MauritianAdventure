@@ -18,7 +18,7 @@ public class GoToTheForest implements PlayerAction {
 
     @Override
     public void invokeAction(HttpSession session, GameState gameState) {
-        gameState.setPlayerLocation(new ForestLocation());
+        gameState.visitLocation(new ForestLocation());
     }
 
     @Override

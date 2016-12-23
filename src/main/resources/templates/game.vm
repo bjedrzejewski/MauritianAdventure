@@ -16,9 +16,7 @@
     <h1>Mauritian Adventure</h1>
     <div>Player Health: $gameState.getPlayer().getLife()</div>
     <div>$gameState.getPlayer().getDescription()</div>
-    <div>
-        <img src="/images/$location.getImage()" style="width: 100%; filter: brightness($gameState.getCurrentDayTime().getBrightness()%)">
-    </div>
+
     <div>
         $main_text
     </div>
@@ -27,5 +25,8 @@
             style="margin: 5px">$action.getActionLabel()</button>
             <br>
         #end
+    <div>
+        <img src="/images/$location.getImage()" style="width: 100%; filter: brightness($gameState.getCurrentDayTime().getBrightness()%)">
+    </div>
 </body>
 </html>
