@@ -31,7 +31,7 @@ public class ActionController {
             return "error";
         }
 
-        action.invokeAction(session, model);
+        action.invokeAction(session, gameState);
 
         //Advance the time
         gameState = GameRunner.checkGameState(session);

@@ -1,6 +1,7 @@
 package com.bjedrzejewski.action;
 
 import com.bjedrzejewski.game.GameRunner;
+import com.bjedrzejewski.game.GameState;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +32,7 @@ public final class RestAction implements PlayerAction{
     }
 
     @Override
-    public void invokeAction(HttpSession session, Map<String, Object> model) {
+    public void invokeAction(HttpSession session, GameState gameState) {
         log.debug("Player is resting.");
     }
 

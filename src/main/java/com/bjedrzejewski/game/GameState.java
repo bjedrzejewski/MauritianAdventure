@@ -115,4 +115,8 @@ public class GameState implements Serializable{
     public Location getPlayerLocation() {
         return playerLocation;
     }
+
+    public void setPlayerLocation(Location playerLocation) {
+        this.playerLocation = playerLocation;
+    }
 }
