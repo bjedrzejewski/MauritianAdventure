@@ -19,8 +19,15 @@ public class Player implements Serializable {
 
     }
 
+    public String getDescription(){
+        return "You are healthy and well rested.";
+    }
+
     public static Player createPlayer(){
         return new Player();
     }
 
+    public int getLife() {
+        return life;
+    }
 }
