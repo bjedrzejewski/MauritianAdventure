@@ -1,6 +1,7 @@
 package com.bjedrzejewski.location.beach;
 
 import com.bjedrzejewski.action.PlayerAction;
+import com.bjedrzejewski.game.GameState;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpSession;
@@ -27,7 +28,7 @@ public class ExploreTheBeach implements PlayerAction{
     }
 
     @Override
-    public void invokeAction(HttpSession session, Map<String, Object> model) {
+    public void invokeAction(HttpSession session, GameState gameState) {
         exploredTimes++;
         log.debug("Player explored the beach: "+exploredTimes +" times");
         if(exploredTimes==2){
