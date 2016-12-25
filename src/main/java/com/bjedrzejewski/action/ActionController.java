@@ -31,7 +31,10 @@ public class ActionController {
             return "error";
         }
 
-        action.invokeAction(session, gameState);
+
+        action.invokeAction(session, model);
+        gameState.setLastActionDescription(action.getActionDescription());
+
 
         //Advance the time
         gameState = GameRunner.checkGameState(session);

@@ -29,6 +29,9 @@ public class GameState implements Serializable{
     //Game starts on the beach
     private Location playerLocation;
 
+    //Description of the last action
+    private String lastActionDescription = "";
+
     public static GameState createGame() {
         return new GameState();
     }
@@ -54,7 +57,7 @@ public class GameState implements Serializable{
     }
 
     /**
-     * This method returns vurrently available player actions
+     * This method returns currently available player actions
      * @return
      */
     public Map<String, PlayerAction> getAvailablePlayerActions(){
@@ -98,10 +101,24 @@ public class GameState implements Serializable{
     public String getDescription(){
         String description = "";
 
+        // add report of last action
+        description += getLastActionDescription();
+        description += "<br>";
+
+        // add location text
         description += playerLocation.getDescription();
 
         return description;
 
+    }
+
+    // gets the current GameState's lastActionDescription
+    public String getLastActionDescription(){
+        return lastActionDescription;
+    }
+
+    public void setLastActionDescription(String newDescription) {
+        lastActionDescription = newDescription;
     }
 
     /**

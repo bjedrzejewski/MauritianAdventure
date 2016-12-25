@@ -34,4 +34,10 @@ public interface PlayerAction extends Serializable{
      */
     abstract String getActionLabel();
 
+    /**
+     * Action description to be displayed upon invocation
+     * @return
+     */
+    abstract String getActionDescription();
+
 }

@@ -1,6 +1,7 @@
 package com.bjedrzejewski.location.beach;
 
 import com.bjedrzejewski.action.PlayerAction;
+import com.bjedrzejewski.action.ScreamAction;
 import com.bjedrzejewski.location.Location;
 
 import java.util.ArrayList;
@@ -14,7 +15,10 @@ public class BeachLocation implements Location {
     private List<PlayerAction> playerActions = new ArrayList<>();
 
     public BeachLocation(){
-        playerActions.add(new ExploreTheBeach(this));
+
+        playerActions.add(new ExploreTheBeach());
+        playerActions.add(ScreamAction.getInstance());
+
     }
 
     /**
@@ -28,7 +32,7 @@ public class BeachLocation implements Location {
 
     @Override
     public String getDescription() {
-        return "You are on a beautiful beach. The water is clear blue and you can see forrest and some mountains in the distance. ";
+        return "You are on a beautiful beach. The water is clear blue and you can see forest and some mountains in the distance. ";
     }
 
     @Override

@@ -13,6 +13,7 @@ import java.util.Map;
 public class ExploreTheBeach implements PlayerAction{
 
     private static final Logger log = Logger.getLogger(ExploreTheBeach.class);
+    private static final String actionDescription = "You explore the beach for a while.";
 
     public int exploredTimes = 0;
 
@@ -40,4 +41,8 @@ public class ExploreTheBeach implements PlayerAction{
     public String getActionLabel() {
         return "Explore the Beach";
     }
+
+    @Override
+    public String getActionDescription() { return actionDescription; }
+
 }

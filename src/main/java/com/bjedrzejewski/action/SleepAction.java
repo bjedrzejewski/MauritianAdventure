@@ -21,6 +21,7 @@ public final class SleepAction implements PlayerAction{
     private static final Logger log = Logger.getLogger(SleepAction.class);
     private static final String restUrl = "sleep";
     private static final SleepAction INSTANCE = new SleepAction();
+    private static final String actionDescription = "You sleep for the night.";
 
     private SleepAction() {
     }
@@ -39,6 +40,11 @@ public final class SleepAction implements PlayerAction{
     public String getActionLabel() {
         return "Go to sleep";
     }
+
+    @Override
+    public String getActionDescription() { return actionDescription; }
+
+
 
     public static SleepAction getInstance() {
         return INSTANCE;

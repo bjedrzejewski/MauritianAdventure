@@ -22,6 +22,7 @@ public final class RestAction implements PlayerAction{
     private static final Logger log = Logger.getLogger(RestAction.class);
     private static final String restUrl = "rest";
     private static final RestAction INSTANCE = new RestAction();
+    private static final String actionDescription = "You rest for a while.";
 
     private RestAction() {
     }
@@ -40,6 +41,9 @@ public final class RestAction implements PlayerAction{
     public String getActionLabel() {
         return "Take a rest";
     }
+
+    @Override
+    public String getActionDescription() { return actionDescription; };
 
     public static RestAction getInstance() {
         return INSTANCE;
